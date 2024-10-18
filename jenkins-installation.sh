@@ -72,26 +72,10 @@ display_access_instructions() {
 }
 
 # Detect OS
-detect_os() {
-    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-/bin/bash: line 1: q: command not found
-            os="debian"
-        elif command -v yum &> /dev/null; then
-            os="rhel"
-        elif command -v dnf &> /dev/null; then
-            os="fedora"
-        fi
-    elif [[ "$OSTYPE" == "darwin"* ]]; then
-        os="mac"
-    else
-        echo "Unsupported OS."
-        exit 1
-    fi
-}
 
 # Main script logic
 main() {
-    detect_os
+    # detect_os
     install_java
     install_jenkins
     check_jenkins_status
